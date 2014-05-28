@@ -1,7 +1,37 @@
 * MummRa
 [[https://travis-ci.org/iachettifederico/mumm_ra][Build State]] [[https://travis-ci.org/iachettifederico/mumm_ra.svg]]
 
-TODO: Write a gem description
+This gem implements a simple Repository. It's ment to retrieve data from a source in a uniform way.
+
+It's called after a cartoon character from the Thundercats show. This character is a wizard mummy with limited powers, but has the ability to turn itself into a powerful enemy with the help of ancient spirits.
+
+It takes the analogy of simple mummy (raw data in the source) and powerful entity (fully quallified Ruby objects).
+
+** Introduction
+
+Say we have some data stored in a source. The data takes the form of two dimentional points, that has an =x= field and a =y= field.
+
+We want to make a Repository capable of retreiving the stored data, allowing us not to worry about the output data.
+
+This =Repository= should be placed between the ORM and Business layers of an application.
+
+** Preconditions
+*** The mapped object should comply with the following rules:
+- It should be able to be initialized via a =Hash=
+- It's class should have a =#members= method, that returns an array (or =Enumerable=) with the mane of the attributes as it's items (in the form of a =String= or =Symbol=)
+- It has to have getters for every member
+
+This behaviour could be easily achieved using the [[http://github.com/iachettifederico/rb_toolbox][rb_toolbox]] gem.
+
+*** The source should comply with the following
+- It should respond to the =#values= method, which sould return all the "stored" objects
+- It should respond to the =#[]= method that, sould receive a key and return it's corresponding value
+
+This behaviour could be easily achieved using a =Hash=.
+
+*** Usage
+
+TODO: Complete usage
 
 ** Installation
 
@@ -20,10 +50,6 @@ Or install it yourself as:
 #+BEGIN_SRC bash
 $ gem install mumm_ra
 #+END_SRC
-
-** Usage
-
-TODO: Write usage instructions here
 
 ** Contributing
 
